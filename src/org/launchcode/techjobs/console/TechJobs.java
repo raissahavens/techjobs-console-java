@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Scanner;
 import java.util.Map;
+import java.util.Collections;
 
 /**
  * Created by LaunchCode
@@ -49,6 +50,7 @@ public class TechJobs {
                     // Print list of skills, employers, etc
                     for (String item : results) {
                         System.out.println(item);
+                        //Collections.sort(item);
                     }
                 }
 
