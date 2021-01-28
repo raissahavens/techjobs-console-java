@@ -119,7 +119,7 @@ public class TechJobs {
                 for (Map.Entry<String, String> entry : job.entrySet()) {
                     System.out.println(entry.getKey() + " : " + entry.getValue());
                 }
-        }
+            }
         if(someJobs.isEmpty()) {
             System.out.println("\nNo jobs are found. Enter new term, please.");
         }

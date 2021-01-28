@@ -90,7 +90,7 @@ public class JobData {
         loadData();
 
         ArrayList<HashMap<String, String>> jobSearch = new ArrayList<>();
-
+        //iterating through the array and key/value pair to search for term in all columns
         for (HashMap<String, String> job : allJobs) {
             for(Map.Entry<String, String> entry : job.entrySet()) {
                 String result = entry.getValue().toLowerCase();
