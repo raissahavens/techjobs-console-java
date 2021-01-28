@@ -10,6 +10,7 @@ import java.io.Reader;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by LaunchCode
@@ -36,7 +37,7 @@ public class JobData {
         ArrayList<String> values = new ArrayList<>();
 
         for (HashMap<String, String> row : allJobs) {
-            String aValue = row.get(field);
+            String aValue = row.get(field).toLowerCase();
 
             if (!values.contains(aValue)) {
                 values.add(aValue);
@@ -45,6 +46,7 @@ public class JobData {
 
         return values;
     }
+
 
     public static ArrayList<HashMap<String, String>> findAll() {
 
@@ -73,8 +75,7 @@ public class JobData {
         ArrayList<HashMap<String, String>> jobs = new ArrayList<>();
 
         for (HashMap<String, String> row : allJobs) {
-
-            String aValue = row.get(column);
+            String aValue = row.get(column).toLowerCase();
 
             if (aValue.contains(value)) {
                 jobs.add(row);
@@ -82,6 +83,23 @@ public class JobData {
         }
 
         return jobs;
+    }
+
+    public static ArrayList<HashMap<String, String>> findByValue(String value) {
+
+        loadData();
+
+        ArrayList<HashMap<String, String>> jobSearch = new ArrayList<>();
+
+        for (HashMap<String, String> job : allJobs) {
+            for(Map.Entry<String, String> entry : job.entrySet()) {
+                String result = entry.getValue().toLowerCase();
+                if (result.contains(value)){
+                        jobSearch.add(job);
+                }
+            }
+        }
+        return jobSearch;
     }
 
     /**
